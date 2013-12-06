@@ -19,4 +19,10 @@ describe TvrageApi::Request::Update do
       model.result
     end
   end
+
+  describe '#data_key' do
+    it 'should return correct value' do
+      model.data_key.should == 'shows'
+    end
+  end
 end

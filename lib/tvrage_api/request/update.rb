@@ -7,8 +7,6 @@ class TvrageApi::Request::Update < TvrageApi::Request::Base
     collection_response('show', TvrageApi::Show)
   end
 
-  private
-
   def data_key
     'shows'
   end
