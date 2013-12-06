@@ -5,7 +5,7 @@ class TvrageApi::Show < TvrageApi::Base
 
   coerce_key :akas, AkaArray
   coerce_key :ended, DateOrInteger
-  coerce_key :episode_list, SeasonArray
+  coerce_key :episode_list, EpisodeArray
   coerce_key :genres, GenreArray
   coerce_key :network, TvrageApi::Element
   coerce_key :runtime, Integer
