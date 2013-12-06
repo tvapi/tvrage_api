@@ -44,6 +44,10 @@ describe TvrageApi::Show do
   end
 
   describe 'ceorce' do
+    describe 'id attribute' do
+      include_examples 'integer mapping', :id
+    end
+
     describe 'runtime attribute' do
       include_examples 'integer mapping', :runtime
     end

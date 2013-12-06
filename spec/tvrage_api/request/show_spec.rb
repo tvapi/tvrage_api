@@ -29,6 +29,14 @@ describe TvrageApi::Request::Show do
     end
   end
 
+  describe '#episode' do
+    it 'should call new with specific params' do
+      klass.should_receive(:new).with('episodeinfo.php', :episode, sid: 123, ep: '1x2')
+
+      klass.episode(123, 1, 2)
+    end
+  end
+
   describe '#result' do
     describe 'when kind is simple' do
       let(:kind) { :simple }
@@ -45,6 +53,16 @@ describe TvrageApi::Request::Show do
 
       it 'should call collection_response method' do
         model.should_receive(:object_response).with('Show', TvrageApi::Show)
+
+        model.result
+      end
+    end
+
+    describe 'when kind is episode' do
+      let(:kind) { :episode }
+
+      it 'should call collection_response method' do
+        model.should_receive(:object_response).with('show', TvrageApi::Show)
 
         model.result
       end

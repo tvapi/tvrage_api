@@ -11,16 +11,23 @@ class TvrageApi::Request::Show < TvrageApi::Request::Base
     new('episode_list.php', :full, sid: id)
   end
 
+  def self.episode(series_id, season, episode)
+    new('episodeinfo.php', :episode, sid: series_id, ep: "#{season}x#{episode}")
+  end
+
   def initialize(uri, kind, options = {})
     @kind = kind
     super(uri, options)
   end
 
   def result
-    @result ||= if @kind == :simple
-      object_response('Showinfo', TvrageApi::Show)
-    else
-      object_response('Show', TvrageApi::Show)
+    @result ||= case @kind
+      when :simple
+        object_response('Showinfo', TvrageApi::Show)
+      when :full
+        object_response('Show', TvrageApi::Show)
+      when :episode
+        object_response('show', TvrageApi::Show)
     end
   end
 
