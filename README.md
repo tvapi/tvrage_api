@@ -5,25 +5,36 @@
 
 # TvrageApi
 
-TODO: Write a gem description
+tvrage_api is a simple ruby client for accessing TV shows information from the tvrage.com API.
 
-## Installation
+## Getting started
 
-Add this line to your application's Gemfile:
+You can add it to your Gemfile with:
 
-    gem 'tvrage_api'
+```ruby
+gem 'tvrage_api'
+```
+Run the bundle command to install it.
 
-And then execute:
+## How to use
 
-    $ bundle
+All request class return instance where result method contain object or collection.
 
-Or install it yourself as:
+For example:
+```console
+series = TvrageApi::Request::Show.find('buffy')
+series.result
+=> #<TvrageApi::Show ...>
+```
 
-    $ gem install tvrage_api
+* ThetvdbApi::Request::Search.find(show_name) - return collection of show
+* ThetvdbApi::Request::Search.find_full(show_name) - return collection of show with more details
+* ThetvdbApi::Request::Show.find(show_id) - return show
+* ThetvdbApi::Request::Show.find_full(show_id) - return show with more details
+* ThetvdbApi::Request::Show.episodes(show_id) - return simple show information with all episodes
+* ThetvdbApi::Request::Show.episode(show_id, season, episode) - return simple show information with specific episode
+* ThetvdbApi::Request::Update.all - return all shows (simple information: id, name)
 
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
