@@ -15,5 +15,11 @@ describe TvrageApi::Request::Show do
         klass.find_full('2930').result.class.should == TvrageApi::Show
       end
     end
+
+    describe '#episodes' do
+      it 'should return show class' do
+        klass.episodes('2930').result.class.should == TvrageApi::Show
+      end
+    end
   end
 end

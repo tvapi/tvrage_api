@@ -7,6 +7,10 @@ class TvrageApi::Request::Show < TvrageApi::Request::Base
     new('full_show_info.php', :full, sid: id)
   end
 
+  def self.episodes(id)
+    new('episode_list.php', :full, sid: id)
+  end
+
   def initialize(uri, kind, options = {})
     @kind = kind
     super(uri, options)

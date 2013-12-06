@@ -21,6 +21,14 @@ describe TvrageApi::Request::Show do
     end
   end
 
+  describe '#episodes' do
+    it 'should call new with specific params' do
+      klass.should_receive(:new).with('episode_list.php', :full, sid: 123)
+
+      klass.episodes(123)
+    end
+  end
+
   describe '#result' do
     describe 'when kind is simple' do
       let(:kind) { :simple }
