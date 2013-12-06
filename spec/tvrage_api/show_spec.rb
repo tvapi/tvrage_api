@@ -29,7 +29,9 @@ describe TvrageApi::Show do
 
   describe 'key mapping' do
     describe 'Episodelist attribute' do
-      TvrageApi::Show.new(Episodelist: []).send(:episode_list).should_not == nil
+      it 'should mapping' do
+        TvrageApi::Show.new(Episodelist: double(season: [])).send(:episode_list).should_not == nil
+      end
     end
     
     describe 'showid attribute' do

@@ -1,13 +1,9 @@
 class SeasonArray
   def self.coerce(value)
-    if value.is_a?(Array)
-      value
+    if value.season.is_a?(Array)
+      value.season.map { |season| TvrageApi::Season.new(season.to_hash) }
     else
-      if value.season.is_a?(Array)
-      	value.season.map { |season| TvrageApi::Season.new(season.to_hash) }
-      else
-      	[TvrageApi::Season.new(value.season.to_hash)]
-      end
+      [TvrageApi::Season.new(value.season.to_hash)]
     end
   end
 end
