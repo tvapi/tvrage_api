@@ -17,5 +17,6 @@ class TvrageApi::Show < TvrageApi::Base
   coerce_key :show_id, Integer
   coerce_key :startdate, Date
   coerce_key :started, Integer
+  coerce_key :status, Integer
   coerce_key :total_seasons, Integer
 end

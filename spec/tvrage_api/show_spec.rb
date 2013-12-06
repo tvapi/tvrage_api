@@ -68,6 +68,10 @@ describe TvrageApi::Show do
       include_examples 'integer mapping', :started
     end
 
+    describe 'status attribute' do
+      include_examples 'integer mapping', :status
+    end
+
     describe 'total_seasons attribute' do
       include_examples 'integer mapping', :total_seasons
     end
