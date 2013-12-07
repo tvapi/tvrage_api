@@ -10,6 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['krzysztof.wawer@gmail.com']
   spec.description   = %q{Ruby client for accessing TV shows information from the tvrage.com API}
   spec.summary       = %q{Ruby client for tvrage.com API}
+  spec.homepage      = %q{http://github.com/wafcio/tvrage_api}
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
