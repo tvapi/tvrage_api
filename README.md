@@ -27,13 +27,13 @@ series.result
 => #<TvrageApi::Show ...>
 ```
 
-* ThetvdbApi::Request::Search.find(show_name) - return collection of show
-* ThetvdbApi::Request::Search.find_full(show_name) - return collection of show with more details
-* ThetvdbApi::Request::Show.find(show_id) - return show
-* ThetvdbApi::Request::Show.find_full(show_id) - return show with more details
-* ThetvdbApi::Request::Show.episodes(show_id) - return simple show information with all episodes
-* ThetvdbApi::Request::Show.episode(show_id, season, episode) - return simple show information with specific episode
-* ThetvdbApi::Request::Update.all - return all shows (simple information: id, name)
+* TvrageApi::Request::Search.find(show_name) - return collection of show
+* TvrageApi::Request::Search.find_full(show_name) - return collection of show with more details
+* TvrageApi::Request::Show.find(show_id) - return show
+* TvrageApi::Request::Show.find_full(show_id) - return show with more details
+* TvrageApi::Request::Show.episodes(show_id) - return simple show information with all episodes
+* TvrageApi::Request::Show.episode(show_id, season, episode) - return simple show information with specific episode
+* TvrageApi::Request::Update.all - return all shows (simple information: id, name)
 
 
 ## Contributing
