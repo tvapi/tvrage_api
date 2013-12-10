@@ -5,19 +5,19 @@ describe TvrageApi::Client do
 
   describe '.search' do
     it 'should return search class' do
-      klass.new.search == TvrageApi::Search
+      klass.new.search.class.should == TvrageApi::Search
     end
   end
 
   describe '.show' do
     it 'should return show class' do
-      klass.new.search == TvrageApi::Show
+      klass.new.show.class.should == TvrageApi::Show
     end
   end
 
   describe '.update' do
-    it 'should return updatesearch class' do
-      klass.new.search == TvrageApi::Update
+    it 'should return update class' do
+      klass.new.update.class.should == TvrageApi::Update
     end
   end
 end

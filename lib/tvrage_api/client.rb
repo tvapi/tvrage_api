@@ -4,10 +4,10 @@ class TvrageApi::Client
   end
 
   def show
-    @show ||= Tvrage::Show.new
+    @show ||= TvrageApi::Show.new
   end
 
   def update
-    @show ||= Tvrage::Update.new
+    @show ||= TvrageApi::Update.new
   end
 end

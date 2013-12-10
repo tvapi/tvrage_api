@@ -1,30 +1,30 @@
 require 'spec_helper'
 
 describe TvrageApi::Show do
-  let(:klass) { TvrageApi::Show }
+  let(:model) { TvrageApi::Show.new }
 
   describe 'real request' do
-    describe '#find' do
+    describe '.find' do
       it 'should return Hash class' do
-        klass.new.find('2930').class.should == Hash
+        model.find('2930').class.should == Hash
       end
     end
 
-    describe '#find_full' do
+    describe '.find_full' do
       it 'should return Hash class' do
-        klass.new.find_full('2930').class.should == Hash
+        model.find_full('2930').class.should == Hash
       end
     end
 
-    describe '#episodes' do
+    describe '.episodes' do
       it 'should return show class' do
-        klass.new.episodes('2930').class.should == Hash
+        model.episodes('2930').class.should == Hash
       end
     end
 
-    describe '#episode' do
+    describe '.episode' do
       it 'should return show class' do
-        klass.new.episode('2930', '2',  '4').class.should == Hash
+        model.episode('2930', '2',  '4').class.should == Hash
       end
     end
   end
