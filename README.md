@@ -19,23 +19,36 @@ Run the bundle command to install it.
 
 ## How to use
 
-All request class return instance where result method contain object or collection.
+There is one entry point:
 
-For example:
-```console
-series = TvrageApi::Request::Show.find('buffy')
-series.result
-=> #<TvrageApi::Show ...>
+```ruby
+client = TvrageApi::Client.new
 ```
 
-* TvrageApi::Request::Search.find(show_name) - return collection of show
-* TvrageApi::Request::Search.find_full(show_name) - return collection of show with more details
-* TvrageApi::Request::Show.find(show_id) - return show
-* TvrageApi::Request::Show.find_full(show_id) - return show with more details
-* TvrageApi::Request::Show.episodes(show_id) - return simple show information with all episodes
-* TvrageApi::Request::Show.episode(show_id, season, episode) - return simple show information with specific episode
-* TvrageApi::Request::Update.all - return all shows (simple information: id, name)
+Search show by name:
 
+```ruby
+client = TvrageApi::Client.new
+client.search.by_name('buffy') # return pure Hash
+client.search.full_by_name('buffy') # return pure Hash
+```
+
+Search show by id:
+
+```ruby
+client = TvrageApi::Client.new
+client.show.find('123') # return pure Hash
+client.show.find_full('123') # return pure Hash
+client.show.episodes('123') # return pure Hash, with all episodes
+client.show.episode('123', season, episode) # return pure Hash, with specific episode
+```
+
+Search all show ids:
+
+```ruby
+client = TvrageApi::Client.new
+client.update.all # return pure Hash
+```
 
 ## Contributing
 

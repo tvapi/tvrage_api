@@ -2,78 +2,37 @@ require 'spec_helper'
 
 describe TvrageApi::Show do
   let(:klass) { TvrageApi::Show }
+  let(:model) { klass.new }
 
-  shared_examples 'mapping' do |field, field_mapped|
-    it "should save as #{field_mapped}" do
-      klass.new(field => '123').send(field_mapped).should_not == nil
+  describe '#find' do
+    it 'should call new with specific params' do
+      model.should_receive(:get).with('showinfo.php', sid: 123).and_return(double(response: true))
+
+      model.find(123)
     end
   end
 
-  shared_examples 'integer mapping' do |field|
-    it 'should save as Integer' do
-      klass.new(field => '123').send(field).should == 123
+  describe '#find_full' do
+    it 'should call new with specific params' do
+      model.should_receive(:get).with('full_show_info.php', sid: 123).and_return(double(response: true))
+
+      model.find_full(123)
     end
   end
 
-  shared_examples 'date mapping' do |field|
-    it 'should save as Date' do
-      klass.new(field => '2000-01-01').send(field).should == Date.new(2000, 1, 1)
+  describe '#episodes' do
+    it 'should call new with specific params' do
+      model.should_receive(:get).with('episode_list.php', sid: 123).and_return(double(response: true))
+
+      model.episodes(123)
     end
   end
 
-  describe 'key mapping' do
-    describe 'showid attribute' do
-      include_examples 'mapping', :showid, :show_id
-    end
-  end
+  describe '#episode' do
+    it 'should call new with specific params' do
+      model.should_receive(:get).with('episodeinfo.php', sid: 123, ep: '1x2').and_return(double(response: true))
 
-  describe 'key mapping' do
-    describe 'Episodelist attribute' do
-      it 'should mapping' do
-        TvrageApi::Show.new(Episodelist: double(season: [double(episode: [double(to_hash: {})])])).send(:episode_list).should_not == nil
-      end
-    end
-    
-    describe 'showid attribute' do
-      include_examples 'mapping', :showid, :show_id
-    end
-    
-    describe 'totalseasons attribute' do
-      include_examples 'mapping', :totalseasons, :total_seasons
-    end
-  end
-
-  describe 'ceorce' do
-    describe 'id attribute' do
-      include_examples 'integer mapping', :id
-    end
-
-    describe 'runtime attribute' do
-      include_examples 'integer mapping', :runtime
-    end
-
-    describe 'seasons attribute' do
-      include_examples 'integer mapping', :seasons
-    end
-
-    describe 'show_id attribute' do
-      include_examples 'integer mapping', :show_id
-    end
-
-    describe 'startdate attribute' do
-      include_examples 'date mapping', :startdate
-    end
-
-    describe 'started attribute' do
-      include_examples 'integer mapping', :started
-    end
-
-    describe 'status attribute' do
-      include_examples 'integer mapping', :status
-    end
-
-    describe 'total_seasons attribute' do
-      include_examples 'integer mapping', :total_seasons
+      model.episode(123, 1, 2)
     end
   end
 end

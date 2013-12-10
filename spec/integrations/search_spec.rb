@@ -1,18 +1,18 @@
 require 'spec_helper'
 
-describe TvrageApi::Request::Search do
-  let(:klass) { TvrageApi::Request::Search }
+describe TvrageApi::Search do
+  let(:klass) { TvrageApi::Search }
 
   describe 'real request' do
-    describe '#find' do
-      it 'should return show class' do
-        klass.find('buffy').result.class.should == Array
+    describe '#by_name' do
+      it 'should return Hash class' do
+        klass.new.by_name('buffy').class.should == Hash
       end
     end
 
-    describe '#find_full' do
+    describe '#full_by_name' do
       it 'should return show class' do
-        klass.find_full('buffy').result.class.should == Array
+        klass.new.full_by_name('buffy').class.should == Hash
       end
     end
   end
