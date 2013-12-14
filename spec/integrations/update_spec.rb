@@ -5,8 +5,8 @@ describe TvrageApi::Update do
 
   describe 'real request' do
     describe '.all' do
-      it 'should return Hash class' do
-        model.all.class.should == Hash
+      it 'should return response class' do
+        model.all.class.should == HTTParty::Response
       end
     end
   end

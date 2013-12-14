@@ -6,7 +6,7 @@ describe TvrageApi::Update do
 
   describe '#all' do
     it 'should call new with specific params' do
-      model.should_receive(:get).with('show_list.php').and_return(double(response: true))
+      klass.should_receive(:get).with('show_list.php')
 
       model.all
     end

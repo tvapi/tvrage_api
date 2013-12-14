@@ -6,7 +6,7 @@ describe TvrageApi::Search do
 
   describe '#find' do
     it 'should call new with specific params' do
-      model.should_receive(:get).with('search.php', show: 'buffy').and_return(double(response: true))
+      klass.should_receive(:get).with('search.php', show: 'buffy')
 
       model.by_name('buffy')
     end
@@ -14,7 +14,7 @@ describe TvrageApi::Search do
 
   describe '#find_full' do
     it 'should call new with specific params' do
-      model.should_receive(:get).with('full_search.php', show: 'buffy').and_return(double(response: true))
+      klass.should_receive(:get).with('full_search.php', show: 'buffy')
 
       model.full_by_name('buffy')
     end

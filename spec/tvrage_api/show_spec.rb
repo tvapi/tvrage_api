@@ -6,7 +6,7 @@ describe TvrageApi::Show do
 
   describe '#find' do
     it 'should call new with specific params' do
-      model.should_receive(:get).with('showinfo.php', sid: 123).and_return(double(response: true))
+      klass.should_receive(:get).with('showinfo.php', sid: 123)
 
       model.find(123)
     end
@@ -14,7 +14,7 @@ describe TvrageApi::Show do
 
   describe '#find_full' do
     it 'should call new with specific params' do
-      model.should_receive(:get).with('full_show_info.php', sid: 123).and_return(double(response: true))
+      klass.should_receive(:get).with('full_show_info.php', sid: 123)
 
       model.find_full(123)
     end
@@ -22,7 +22,7 @@ describe TvrageApi::Show do
 
   describe '#episodes' do
     it 'should call new with specific params' do
-      model.should_receive(:get).with('episode_list.php', sid: 123).and_return(double(response: true))
+      klass.should_receive(:get).with('episode_list.php', sid: 123)
 
       model.episodes(123)
     end
@@ -30,7 +30,7 @@ describe TvrageApi::Show do
 
   describe '#episode' do
     it 'should call new with specific params' do
-      model.should_receive(:get).with('episodeinfo.php', sid: 123, ep: '1x2').and_return(double(response: true))
+      klass.should_receive(:get).with('episodeinfo.php', sid: 123, ep: '1x2')
 
       model.episode(123, 1, 2)
     end

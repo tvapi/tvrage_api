@@ -1,5 +1,5 @@
 class TvrageApi::Update < TvrageApi::Base
   def all
-    get('show_list.php').response
+    self.class.get('show_list.php')
   end
 end
