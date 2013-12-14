@@ -29,25 +29,25 @@ Search show by name:
 
 ```ruby
 client = TvrageApi::Client.new
-client.search.by_name('buffy') # return pure Hash
-client.search.full_by_name('buffy') # return pure Hash
+client.search.by_name('buffy')
+client.search.full_by_name('buffy')
 ```
 
 Search show by id:
 
 ```ruby
 client = TvrageApi::Client.new
-client.show.find('123') # return pure Hash
-client.show.find_full('123') # return pure Hash
-client.show.episodes('123') # return pure Hash, with all episodes
-client.show.episode('123', season, episode) # return pure Hash, with specific episode
+client.show.find('123')
+client.show.find_full('123')
+client.show.episodes('123') # show with all episodes
+client.show.episode('123', season, episode) # show with specific episode
 ```
 
 Search all show ids:
 
 ```ruby
 client = TvrageApi::Client.new
-client.update.all # return pure Hash
+client.update.all
 ```
 
 ## Contributing
