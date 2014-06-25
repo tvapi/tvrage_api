@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schedule>
+  <DAY attr="2014-6-24">
+    <time attr="05:00 am">
+      <show name="ECW Hardcore TV">
+        <sid>1598</sid>
+        <network>WWE Network</network>
+        <title>
+          ECW World Champion Shane Douglas defends his title against Ron Simmons
+        </title>
+        <ep>07x44</ep>
+        <link>
+          http://www.tvrage.com/shows/id-1598/episodes/1065591078
+        </link>
+      </show>
+      <show name="Early Start">
+        <sid>40446</sid>
+        <network>CNN</network>
+        <title>Season 3, Episode 122</title>
+        <ep>03x122</ep>
+        <link>
+          http://www.tvrage.com/shows/id-40446/episodes/1065573066
+        </link>
+      </show>
+    </time>
+    <time attr="05:30 am">
+      <show name="Way Too Early">
+        <sid>35766</sid>
+        <network>msnbc</network>
+        <title>Season 5, Episode 222</title>
+        <ep>05x222</ep>
+        <link>
+          http://www.tvrage.com/shows/id-35766/episodes/1065574118
+        </link>
+      </show>
+      <show name="Wake Up With Al">
+        <sid>40464</sid>
+        <network>Weather Channel</network>
+        <title>Season 5, Episode 222</title>
+        <ep>05x222</ep>
+        <link>
+          http://www.tvrage.com/shows/id-40464/episodes/1065574431
+        </link>
+      </show>
+    </time>
+  </DAY>
+  <DAY attr="2016-9-7">
+    <time attr="08:00 pm">
+      <show name="The 2016 Summer Paralympics">
+        <sid>37733</sid>
+        <network>NBC</network>
+        <title>Opening ceremonies</title>
+        <ep>01x01</ep>
+        <link>
+          http://www.tvrage.com/shows/id-37733/episodes/1065386277
+        </link>
+      </show>
+    </time>
+  </DAY>
+</schedule>

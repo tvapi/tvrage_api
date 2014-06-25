@@ -59,6 +59,14 @@ client.info.find(show: 'Alias', ep: '2x04') # episode information
 client.info.find(show: 'Alias', exact: 1) # exact information
 ```
 
+Schedule (quick method return plain text)
+
+```ruby
+client = TvrageApi::Client.new
+client.schedule.quick
+client.schedule.full(country: 'US')
+```
+
 ## Contributing
 
 1. Fork it
