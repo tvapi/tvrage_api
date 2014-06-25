@@ -1,15 +1,19 @@
 class TvrageApi::Update < TvrageApi::Base
-  def all
-    path(all_path).get
+  def last(options = {})
+    last_path_with_params(options).get
   end
 
-  def all_url
-    path(all_path).url
+  def last_url(options = {})
+    last_path_with_params(options).url
   end
 
   private
 
-  def all_path
-    'feeds/show_list.php'
+  def last_path_with_params(options)
+    path(last_path).params(options)
+  end
+
+  def last_path
+    'feeds/last_updates.php'
   end
 end

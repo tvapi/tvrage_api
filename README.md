@@ -44,13 +44,6 @@ client.show.episode(sid: '123', ep: 'SEASONxEPISODE') # show with specific episo
 client.show.all
 ```
 
-Search all show ids:
-
-```ruby
-client = TvrageApi::Client.new
-client.update.all
-```
-
 QuickInfo (it return plain text, not parsed)
 
 ```ruby
@@ -75,6 +68,16 @@ client = TvrageApi::Client.new
 client.recap.all
 client.recap.show(show: 5410)
 client.recap.last(days: 100)
+```
+
+Updates:
+
+```ruby
+client = TvrageApi::Client.new
+client.update.last # last 24 hours
+client.update.last(hours: 48) # set timeline (default: 48)
+client.update.last(sort: 'episodes') # only shows where episodes have changed
+client.update.last(since: 1403668430) # updates since last visit
 ```
 
 ## Contributing

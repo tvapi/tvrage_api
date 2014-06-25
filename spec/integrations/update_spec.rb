@@ -7,7 +7,7 @@ describe TvrageApi::Update do
   describe 'real request' do
     describe '.all' do
       it 'should return response class' do
-        model.all.class.should == Faraday::Response
+        model.last.class.should == Faraday::Response
       end
     end
   end
