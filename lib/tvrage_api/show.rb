@@ -31,6 +31,14 @@ class TvrageApi::Show < TvrageApi::Base
     episode_path_with_params(options).url
   end
 
+  def all
+    path(all_path).get
+  end
+
+  def all_url
+    path(all_path).url
+  end
+
   private
 
   def find_path_with_params(options)
@@ -63,5 +71,9 @@ class TvrageApi::Show < TvrageApi::Base
 
   def episode_path
     'feeds/episodeinfo.php'
+  end
+
+  def all_path
+    'feeds/show_list.php'
   end
 end

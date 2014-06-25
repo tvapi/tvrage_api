@@ -41,6 +41,7 @@ client.show.find(sid: '123')
 client.show.find_full(sid: '123')
 client.show.episodes(sid: '123') # show with all episodes
 client.show.episode(sid: '123', ep: 'SEASONxEPISODE') # show with specific episode
+client.show.all
 ```
 
 Search all show ids:

@@ -28,5 +28,11 @@ describe TvrageApi::Show do
         model.episode(sid: '2930', ep: '2x04').class.should == Faraday::Response
       end
     end
+
+    describe '.all' do
+      it 'should return response class' do
+        model.all.class.should == Faraday::Response
+      end
+    end
   end
 end
