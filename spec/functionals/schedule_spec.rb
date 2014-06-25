@@ -10,7 +10,7 @@ describe TvrageApi::Schedule do
   let(:faraday_stubs) do
     Faraday::Adapter::Test::Stubs.new do |stub|
       stub.get('/tools/quickschedule.php') { [200, { content_type: 'text' }, quick_data] }
-      stub.get('/feeds/fullschedule.php?country=US') { [200, { content_type: 'text' }, full_data] }
+      stub.get('/feeds/fullschedule.php?country=US') { [200, { content_type: 'xml' }, full_data] }
     end
   end
 

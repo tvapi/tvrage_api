@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<recaps found='195' >
+
+<showinfo>
+<showid>5410</showid>
+<seasons>10</seasons>
+<showlink>http://tvrage.com/Supernatural</showlink>
+</showinfo>
+<eplist>
+<Season no="1">
+<episode>
+	<episode_id>166205</episode_id>
+	<season>1</season>
+	<epnum>1</epnum>
+        <episode_url></episode_url>
+	<recap_url>http://www.tvrage.com/Supernatural/episodes/166205</recap_url>
+	<recap></recap>
+</episode>
+<episode>
+	<episode_id>166206</episode_id>
+	<season>1</season>
+	<epnum>2</epnum>
+        <episode_url></episode_url>
+	<recap_url>http://www.tvrage.com/Supernatural/episodes/166206</recap_url>
+	<recap></recap>
+</episode>
+</Season>
+
+<Season no="2">
+<episode>
+	<episode_id>386441</episode_id>
+	<season>2</season>
+	<epnum>1</epnum>
+        <episode_url></episode_url>
+	<recap_url>http://www.tvrage.com/Supernatural/episodes/386441</recap_url>
+	<recap></recap>
+</episode>
+<episode>
+	<episode_id>412873</episode_id>
+	<season>2</season>
+	<epnum>2</epnum>
+        <episode_url></episode_url>
+	<recap_url>http://www.tvrage.com/Supernatural/episodes/412873</recap_url>
+	<recap></recap>
+</episode>
+</Season></eplist></recaps>

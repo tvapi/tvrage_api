@@ -67,6 +67,15 @@ client.schedule.quick
 client.schedule.full(country: 'US')
 ```
 
+Recaps
+
+```ruby
+client = TvrageApi::Client.new
+client.recap.all
+client.recap.show(show: 5410)
+client.recap.last(days: 100)
+```
+
 ## Contributing
 
 1. Fork it

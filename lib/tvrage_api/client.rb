@@ -24,6 +24,10 @@ class TvrageApi::Client
   end
 
   def schedule
-    @info ||= TvrageApi::Schedule.new(self)
+    @schedule ||= TvrageApi::Schedule.new(self)
+  end
+
+  def recap
+    @recap ||= TvrageApi::Recap.new(self)
   end
 end
