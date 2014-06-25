@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<Show>
+  <name>Buffy the Vampire Slayer</name>
+  <totalseasons>7</totalseasons>
+  <Episodelist>
+
+    <Season no="1">
+      <episode><epnum>1</epnum><seasonnum>01</seasonnum><prodnum>4V01</prodnum><airdate>1997-03-10</airdate><link>http://www.tvrage.com/Buffy_The_Vampire_Slayer/episodes/28077</link><title>Welcome to the Hellmouth (1)</title></episode>
+      <episode><epnum>2</epnum><seasonnum>02</seasonnum><prodnum>4V02</prodnum><airdate>1997-03-10</airdate><link>http://www.tvrage.com/Buffy_The_Vampire_Slayer/episodes/28078</link><title>The Harvest (2)</title></episode>
+    </Season>
+
+    <Season no="2">
+      <episode><epnum>13</epnum><seasonnum>01</seasonnum><prodnum>5V01</prodnum><airdate>1997-09-15</airdate><link>http://www.tvrage.com/Buffy_The_Vampire_Slayer/episodes/28089</link><title>When She Was Bad</title></episode>
+      <episode><epnum>14</epnum><seasonnum>02</seasonnum><prodnum>5V02</prodnum><airdate>1997-09-22</airdate><link>http://www.tvrage.com/Buffy_The_Vampire_Slayer/episodes/28090</link><title>Some Assembly Required</title></episode>
+    </Season>
+
+  </Episodelist>
+
+</Show>

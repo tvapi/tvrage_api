@@ -1,6 +1,11 @@
-require 'httparty'
+require 'service_api'
 
 class TvrageApi::Base
-  include HTTParty
-  base_uri 'http://services.tvrage.com/feeds/'
+  include ServiceApi::BaseFaraday
+
+  private
+
+  def base_url
+    'http://services.tvrage.com/feeds/'
+  end
 end
