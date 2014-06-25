@@ -16,6 +16,10 @@ class TvrageApi::Client
   end
 
   def update
-    @show ||= TvrageApi::Update.new(self)
+    @update ||= TvrageApi::Update.new(self)
+  end
+
+  def info
+    @info ||= TvrageApi::Info.new(self)
   end
 end

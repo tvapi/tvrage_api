@@ -50,6 +50,15 @@ client = TvrageApi::Client.new
 client.update.all
 ```
 
+QuickInfo (it return plain text, not parsed)
+
+```ruby
+client = TvrageApi::Client.new
+client.info.find(show: 'Alias') # main information
+client.info.find(show: 'Alias', ep: '2x04') # episode information
+client.info.find(show: 'Alias', exact: 1) # exact information
+```
+
 ## Contributing
 
 1. Fork it

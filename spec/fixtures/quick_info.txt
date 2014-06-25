@@ -1,0 +1,13 @@
+<pre>Show ID@2537
+Show Name@Alias
+Show URL@http://www.tvrage.com/Alias
+Premiered@2001
+Started@Sep/30/2001
+Ended@May/22/2006
+Latest Episode@05x17^All the Time in the World^May/22/2006
+Country@USA
+Status@Canceled/Ended
+Classification@Scripted
+Genres@Action | Adventure | Drama
+Network@ABC
+Runtime@60

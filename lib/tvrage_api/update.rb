@@ -10,6 +10,6 @@ class TvrageApi::Update < TvrageApi::Base
   private
 
   def all_path
-    'show_list.php'
+    'feeds/show_list.php'
   end
 end

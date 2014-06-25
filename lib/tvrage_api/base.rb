@@ -6,6 +6,6 @@ class TvrageApi::Base
   private
 
   def base_url
-    'http://services.tvrage.com/feeds/'
+    'http://services.tvrage.com/'
   end
 end

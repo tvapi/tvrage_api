@@ -22,7 +22,7 @@ class TvrageApi::Search < TvrageApi::Base
   end
 
   def by_name_path
-    'search.php'
+    'feeds/search.php'
   end
 
   def full_by_name_path_with_params(options)
@@ -30,6 +30,6 @@ class TvrageApi::Search < TvrageApi::Base
   end
 
   def full_by_name_path
-    'full_search.php'
+    'feeds/full_search.php'
   end
 end
