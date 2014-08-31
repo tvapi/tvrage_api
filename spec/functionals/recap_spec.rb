@@ -18,49 +18,49 @@ describe TvrageApi::Recap do
 
   describe '.all' do
     it 'should return Faraday::Response class' do
-      model.all.class.should == Faraday::Response
+      expect(model.all).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.all.body == Hash
+      expect(model.all.body).to be_a(Hash)
     end
   end
 
   describe '.all_url' do
     it 'should return correct url' do
-      model.all_url.should == 'http://services.tvrage.com/recaps/all_recaps.php'
+      expect(model.all_url).to eq('http://services.tvrage.com/recaps/all_recaps.php')
     end
   end
 
   describe '.show' do
     it 'should return Faraday::Response class' do
-      model.show(show: 5410).class.should == Faraday::Response
+      expect(model.show(show: 5410)).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.show(show: 5410).body == Hash
+      expect(model.show(show: 5410).body).to be_a(Hash)
     end
   end
 
   describe '.all_url' do
     it 'should return correct url' do
-      model.show_url(show: 5410).should == 'http://services.tvrage.com/recaps/show_recaps.php?show=5410'
+      expect(model.show_url(show: 5410)).to eq('http://services.tvrage.com/recaps/show_recaps.php?show=5410')
     end
   end
 
   describe '.last' do
     it 'should return Faraday::Response class' do
-      model.last.class.should == Faraday::Response
+      expect(model.last).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.last.body == Hash
+      expect(model.last.body).to be_a(Hash)
     end
   end
 
   describe '.all_url' do
     it 'should return correct url' do
-      model.last_url.should == 'http://services.tvrage.com/recaps/last_recaps.php'
+      expect(model.last_url).to eq('http://services.tvrage.com/recaps/last_recaps.php')
     end
   end
 end

@@ -16,33 +16,33 @@ describe TvrageApi::Search do
 
   describe '.by_name' do
     it 'should return Faraday::Response class' do
-      model.by_name(show: 'buffy').class.should == Faraday::Response
+      expect(model.by_name(show: 'buffy')).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.by_name(show: 'buffy').body == Hash
+      expect(model.by_name(show: 'buffy').body).to be_a(Hash)
     end
   end
 
   describe '.by_name_url' do
     it 'should return correct url' do
-      model.by_name_url(show: 'buffy').should == 'http://services.tvrage.com/feeds/search.php?show=buffy'
+      expect(model.by_name_url(show: 'buffy')).to eq('http://services.tvrage.com/feeds/search.php?show=buffy')
     end
   end
 
   describe '.full_by_name' do
     it 'should return Faraday::Response class' do
-      model.full_by_name(show: 'buffy').class.should == Faraday::Response
+      expect(model.full_by_name(show: 'buffy')).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.full_by_name(show: 'buffy').body == Hash
+      expect(model.full_by_name(show: 'buffy').body).to be_a(Hash)
     end
   end
 
   describe '.full_by_name_url' do
     it 'should return correct url' do
-      model.full_by_name_url(show: 'buffy').should == 'http://services.tvrage.com/feeds/full_search.php?show=buffy'
+      expect(model.full_by_name_url(show: 'buffy')).to eq('http://services.tvrage.com/feeds/full_search.php?show=buffy')
     end
   end
 end

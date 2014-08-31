@@ -14,17 +14,17 @@ describe TvrageApi::Info do
 
   describe '.find' do
     it 'should return Faraday::Response class' do
-      model.find(show: 'Alias').class.should == Faraday::Response
+      expect(model.find(show: 'Alias')).to be_a(Faraday::Response)
     end
 
     it 'should return String class for body reponse' do
-      model.find(show: 'Alias').body == String
+      expect(model.find(show: 'Alias').body).to be_a(String)
     end
   end
 
   describe '.find_url' do
     it 'should return correct url' do
-      model.find_url(show: 'Alias').should == 'http://services.tvrage.com/tools/quickinfo.php?show=Alias'
+      expect(model.find_url(show: 'Alias')).to eq('http://services.tvrage.com/tools/quickinfo.php?show=Alias')
     end
   end
 end

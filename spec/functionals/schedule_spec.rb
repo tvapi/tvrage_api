@@ -16,33 +16,33 @@ describe TvrageApi::Schedule do
 
   describe '.quick' do
     it 'should return Faraday::Response class' do
-      model.quick.class.should == Faraday::Response
+      expect(model.quick).to be_a(Faraday::Response)
     end
 
     it 'should return String class for body reponse' do
-      model.quick.body == String
+      expect(model.quick.body).to be_a(String)
     end
   end
 
   describe '.quick_url' do
     it 'should return correct url' do
-      model.quick_url.should == 'http://services.tvrage.com/tools/quickschedule.php'
+      expect(model.quick_url).to eq('http://services.tvrage.com/tools/quickschedule.php')
     end
   end
 
   describe '.full' do
     it 'should return Faraday::Response class' do
-      model.full(country: 'US').class.should == Faraday::Response
+      expect(model.full(country: 'US')).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.full(country: 'US').body == Hash
+      expect(model.full(country: 'US').body).to be_a(Hash)
     end
   end
 
   describe '.quick_url' do
     it 'should return correct url' do
-      model.full_url(country: 'US').should == 'http://services.tvrage.com/feeds/fullschedule.php?country=US'
+      expect(model.full_url(country: 'US')).to eq('http://services.tvrage.com/feeds/fullschedule.php?country=US')
     end
   end
 end

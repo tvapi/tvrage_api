@@ -14,17 +14,17 @@ describe TvrageApi::Update do
 
   describe '.last' do
     it 'should return Faraday::Response class' do
-      model.last.class.should == Faraday::Response
+      expect(model.last).to be_a(Faraday::Response)
     end
 
     it 'should return Hash class for body reponse' do
-      model.last.body == Hash
+      expect(model.last.body).to be_a(Hash)
     end
   end
 
   describe '.last_url' do
     it 'should return correct url' do
-      model.last_url.should == 'http://services.tvrage.com/feeds/last_updates.php'
+      expect(model.last_url).to eq('http://services.tvrage.com/feeds/last_updates.php')
     end
   end
 end
