@@ -7,7 +7,12 @@ describe TvrageApi::Info do
   describe 'real request' do
     describe '.find' do
       it 'should return response class' do
-        model.find(show: 'buffy').class.should == Faraday::Response
+        response = model.find(show: 'buffy')
+        ap response.body
+
+        expect(response).to be_a(Faraday::Response)
+        expect(response.status).to eq(200)
+        expect(response.body).to be_a(String)
       end
     end
   end

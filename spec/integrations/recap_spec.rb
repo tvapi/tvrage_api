@@ -7,19 +7,34 @@ describe TvrageApi::Recap do
   describe 'real request' do
     describe '.all' do
       it 'should return response class' do
-        model.all.class.should == Faraday::Response
+        response = model.all
+        ap response.body
+
+        expect(response).to be_a(Faraday::Response)
+        expect(response.status).to eq(200)
+        expect(response.body).to be_a(Hash)
       end
     end
 
     describe '.show' do
       it 'should return response class' do
-        model.show(show: 5410).class.should == Faraday::Response
+        response = model.show(id: 5410)
+        ap response.body
+
+        expect(response).to be_a(Faraday::Response)
+        expect(response.status).to eq(200)
+        expect(response.body).to be_a(Hash)
       end
     end
 
     describe '.last' do
       it 'should return response class' do
-        model.last.class.should == Faraday::Response
+        response = model.last(30)
+        ap response.body
+
+        expect(response).to be_a(Faraday::Response)
+        expect(response.status).to eq(200)
+        expect(response.body).to be_a(Hash)
       end
     end
   end

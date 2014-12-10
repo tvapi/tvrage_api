@@ -7,31 +7,56 @@ describe TvrageApi::Show do
   describe 'real request' do
     describe '.find' do
       it 'should return response class' do
-        model.find(sid: '2930').class.should == Faraday::Response
+        response = model.find(id: '2930')
+        ap response.body
+
+        expect(response).to be_a(Faraday::Response)
+        expect(response.status).to eq(200)
+        expect(response.body).to be_a(Hash)
       end
     end
 
     describe '.find_full' do
       it 'should return response class' do
-        model.find_full(sid: '2930').class.should == Faraday::Response
+        response = model.find_full(id: '2930')
+        ap response.body
+
+        expect(response).to be_a(Faraday::Response)
+        expect(response.status).to eq(200)
+        expect(response.body).to be_a(Hash)
       end
     end
 
     describe '.episodes' do
       it 'should return response class' do
-        model.episodes(sid: '2930').class.should == Faraday::Response
+        response = model.episodes(id: '2930')
+        ap response.body
+
+        expect(response).to be_a(Faraday::Response)
+        expect(response.status).to eq(200)
+        expect(response.body).to be_a(Hash)
       end
     end
 
     describe '.episode' do
       it 'should return response class' do
-        model.episode(sid: '2930', ep: '2x04').class.should == Faraday::Response
+        response = model.episode(show_id: '2930', episode: '2x04')
+        ap response.body
+
+        expect(response).to be_a(Faraday::Response)
+        expect(response.status).to eq(200)
+        expect(response.body).to be_a(Hash)
       end
     end
 
     describe '.all' do
       it 'should return response class' do
-        model.all.class.should == Faraday::Response
+        response = model.all
+        ap response.body
+
+        expect(response).to be_a(Faraday::Response)
+        expect(response.status).to eq(200)
+        expect(response.body).to be_a(Hash)
       end
     end
   end

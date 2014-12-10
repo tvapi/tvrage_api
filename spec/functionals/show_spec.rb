@@ -21,66 +21,146 @@ describe TvrageApi::Show do
   end
 
   describe '.find' do
-    it 'should return Faraday::Response class' do
-      expect(model.find(sid: 2930)).to be_a(Faraday::Response)
+    context 'hash attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.find(id: 2930)).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.find(id: 2930).body).to be_a(Hash)
+      end
     end
 
-    it 'should return Hash class for body reponse' do
-      expect(model.find(sid: 2930).body).to be_a(Hash)
+    context 'normal attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.find(2930)).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.find(2930).body).to be_a(Hash)
+      end
     end
   end
 
   describe '.find_url' do
-    it 'should return correct url' do
-      expect(model.find_url(sid: 2930)).to eq('http://services.tvrage.com/feeds/showinfo.php?sid=2930')
+    context 'hash attributes' do
+      it 'should return correct url' do
+        expect(model.find_url(id: 2930)).to eq('http://services.tvrage.com/feeds/showinfo.php?sid=2930')
+      end
+    end
+
+    context 'normal attributes' do
+      it 'should return correct url' do
+        expect(model.find_url(2930)).to eq('http://services.tvrage.com/feeds/showinfo.php?sid=2930')
+      end
     end
   end
 
   describe '.find_full' do
-    it 'should return Faraday::Response class' do
-      expect(model.find_full(sid: 2930)).to be_a(Faraday::Response)
+    context 'hash attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.find_full(id: 2930)).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.find_full(id: 2930).body).to be_a(Hash)
+      end
     end
 
-    it 'should return Hash class for body reponse' do
-      expect(model.find_full(sid: 2930).body).to be_a(Hash)
+    context 'normal attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.find_full(2930)).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.find_full(2930).body).to be_a(Hash)
+      end
     end
   end
 
   describe '.find_full_url' do
-    it 'should return correct url' do
-      expect(model.find_full_url(sid: 2930)).to eq('http://services.tvrage.com/feeds/full_show_info.php?sid=2930')
+    context 'hash attributes' do
+      it 'should return correct url' do
+        expect(model.find_full_url(id: 2930)).to eq('http://services.tvrage.com/feeds/full_show_info.php?sid=2930')
+      end
+    end
+
+    context 'normal attributes' do
+      it 'should return correct url' do
+        expect(model.find_full_url(2930)).to eq('http://services.tvrage.com/feeds/full_show_info.php?sid=2930')
+      end
     end
   end
 
   describe '.episodes' do
-    it 'should return Faraday::Response class' do
-      expect(model.episodes(sid: 2930)).to be_a(Faraday::Response)
+    context 'hash attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.episodes(id: 2930)).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.episodes(id: 2930).body).to be_a(Hash)
+      end
     end
 
-    it 'should return Hash class for body reponse' do
-      expect(model.episodes(sid: 2930).body).to be_a(Hash)
+    context 'normal attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.episodes(2930)).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.episodes(2930).body).to be_a(Hash)
+      end
     end
   end
 
   describe '.episodes_url' do
-    it 'should return correct url' do
-      expect(model.episodes_url(sid: 2930)).to eq('http://services.tvrage.com/feeds/episode_list.php?sid=2930')
+    context 'hash attributes' do
+      it 'should return correct url' do
+        expect(model.episodes_url(id: 2930)).to eq('http://services.tvrage.com/feeds/episode_list.php?sid=2930')
+      end
+    end
+
+    context 'normal attributes' do
+      it 'should return correct url' do
+        expect(model.episodes_url(2930)).to eq('http://services.tvrage.com/feeds/episode_list.php?sid=2930')
+      end
     end
   end
 
   describe '.episode' do
-    it 'should return Faraday::Response class' do
-      expect(model.episode(sid: 2930, ep: '2x04')).to be_a(Faraday::Response)
+    context 'hash attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.episode(show_id: 2930, episode: '2x04')).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.episode(show_id: 2930, episode: '2x04').body).to be_a(Hash)
+      end
     end
 
-    it 'should return Hash class for body reponse' do
-      expect(model.episode(sid: 2930, ep: '2x04').body).to be_a(Hash)
+    context 'normal attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.episode(2930, '2x04')).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.episode(2930, '2x04').body).to be_a(Hash)
+      end
     end
   end
 
   describe '.episode_url' do
-    it 'should return correct url' do
-      expect(model.episode_url(sid: 2930, ep: '2x04')).to eq('http://services.tvrage.com/feeds/episodeinfo.php?sid=2930&ep=2x04')
+    context 'hash attributes' do
+      it 'should return correct url' do
+        expect(model.episode_url(show_id: 2930, episode: '2x04')).to eq('http://services.tvrage.com/feeds/episodeinfo.php?sid=2930&ep=2x04')
+      end
+    end
+
+    context 'normal attributes' do
+      it 'should return correct url' do
+        expect(model.episode_url(2930, '2x04')).to eq('http://services.tvrage.com/feeds/episodeinfo.php?sid=2930&ep=2x04')
+      end
     end
   end
 

@@ -5,9 +5,14 @@ describe TvrageApi::Update do
   let(:model) { client.update }
 
   describe 'real request' do
-    describe '.all' do
+    describe '.last' do
       it 'should return response class' do
-        model.last.class.should == Faraday::Response
+        response = model.last(hours: 48, sort: 'episodes', since: 1418056721)
+        ap response.body
+
+        expect(response).to be_a(Faraday::Response)
+        expect(response.status).to eq(200)
+        expect(response.body).to be_a(Hash)
       end
     end
   end

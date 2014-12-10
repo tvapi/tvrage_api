@@ -15,34 +15,74 @@ describe TvrageApi::Schedule do
   end
 
   describe '.quick' do
-    it 'should return Faraday::Response class' do
-      expect(model.quick).to be_a(Faraday::Response)
+    context 'hash attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.quick(country: 'US')).to be_a(Faraday::Response)
+      end
+
+      it 'should return String class for body reponse' do
+        expect(model.quick(country: 'US').body).to be_a(String)
+      end
     end
 
-    it 'should return String class for body reponse' do
-      expect(model.quick.body).to be_a(String)
+    context 'normal attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.quick('US')).to be_a(Faraday::Response)
+      end
+
+      it 'should return String class for body reponse' do
+        expect(model.quick('US').body).to be_a(String)
+      end
     end
   end
 
   describe '.quick_url' do
-    it 'should return correct url' do
-      expect(model.quick_url).to eq('http://services.tvrage.com/tools/quickschedule.php')
+    context 'hash attributes' do
+      it 'should return correct url' do
+        expect(model.quick_url(country: 'US')).to eq('http://services.tvrage.com/tools/quickschedule.php?country=US')
+      end
+    end
+
+    context 'normal attributes' do
+      it 'should return correct url' do
+        expect(model.quick_url('US')).to eq('http://services.tvrage.com/tools/quickschedule.php?country=US')
+      end
     end
   end
 
   describe '.full' do
-    it 'should return Faraday::Response class' do
-      expect(model.full(country: 'US')).to be_a(Faraday::Response)
+    context 'hash attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.full(country: 'US')).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.full(country: 'US').body).to be_a(Hash)
+      end
     end
 
-    it 'should return Hash class for body reponse' do
-      expect(model.full(country: 'US').body).to be_a(Hash)
+    context 'normal attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.full('US', nil)).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.full('US', nil).body).to be_a(Hash)
+      end
     end
   end
 
   describe '.quick_url' do
-    it 'should return correct url' do
-      expect(model.full_url(country: 'US')).to eq('http://services.tvrage.com/feeds/fullschedule.php?country=US')
+    context 'hash attributes' do
+      it 'should return correct url' do
+        expect(model.full_url(country: 'US')).to eq('http://services.tvrage.com/feeds/fullschedule.php?country=US')
+      end
+    end
+
+    context 'normal attributes' do
+      it 'should return correct url' do
+        expect(model.full_url('US', nil)).to eq('http://services.tvrage.com/feeds/fullschedule.php?country=US&')
+      end
     end
   end
 end

@@ -15,34 +15,74 @@ describe TvrageApi::Search do
   end
 
   describe '.by_name' do
-    it 'should return Faraday::Response class' do
-      expect(model.by_name(show: 'buffy')).to be_a(Faraday::Response)
+    context 'hash attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.by_name(name: 'buffy')).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.by_name(name: 'buffy').body).to be_a(Hash)
+      end
     end
 
-    it 'should return Hash class for body reponse' do
-      expect(model.by_name(show: 'buffy').body).to be_a(Hash)
+    context 'normal attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.by_name('buffy')).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.by_name('buffy').body).to be_a(Hash)
+      end
     end
   end
 
   describe '.by_name_url' do
-    it 'should return correct url' do
-      expect(model.by_name_url(show: 'buffy')).to eq('http://services.tvrage.com/feeds/search.php?show=buffy')
+    context 'hash attributes' do
+      it 'should return correct url' do
+        expect(model.by_name_url(name: 'buffy')).to eq('http://services.tvrage.com/feeds/search.php?show=buffy')
+      end
+    end
+
+    context 'normal attributes' do
+      it 'should return correct url' do
+        expect(model.by_name_url('buffy')).to eq('http://services.tvrage.com/feeds/search.php?show=buffy')
+      end
     end
   end
 
   describe '.full_by_name' do
-    it 'should return Faraday::Response class' do
-      expect(model.full_by_name(show: 'buffy')).to be_a(Faraday::Response)
+    context 'hash attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.full_by_name(name: 'buffy')).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.full_by_name(name: 'buffy').body).to be_a(Hash)
+      end
     end
 
-    it 'should return Hash class for body reponse' do
-      expect(model.full_by_name(show: 'buffy').body).to be_a(Hash)
+    context 'normal attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.full_by_name('buffy')).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.full_by_name('buffy').body).to be_a(Hash)
+      end
     end
   end
 
   describe '.full_by_name_url' do
-    it 'should return correct url' do
-      expect(model.full_by_name_url(show: 'buffy')).to eq('http://services.tvrage.com/feeds/full_search.php?show=buffy')
+    context 'hash attributes' do
+      it 'should return correct url' do
+        expect(model.full_by_name_url(name: 'buffy')).to eq('http://services.tvrage.com/feeds/full_search.php?show=buffy')
+      end
+    end
+
+    context 'normal attributes' do
+      it 'should return correct url' do
+        expect(model.full_by_name_url('buffy')).to eq('http://services.tvrage.com/feeds/full_search.php?show=buffy')
+      end
     end
   end
 end

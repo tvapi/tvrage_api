@@ -13,18 +13,38 @@ describe TvrageApi::Info do
   end
 
   describe '.find' do
-    it 'should return Faraday::Response class' do
-      expect(model.find(show: 'Alias')).to be_a(Faraday::Response)
+    context 'hash attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.find(show: 'Alias')).to be_a(Faraday::Response)
+      end
+
+      it 'should return String class for body reponse' do
+        expect(model.find(show: 'Alias').body).to be_a(String)
+      end
     end
 
-    it 'should return String class for body reponse' do
-      expect(model.find(show: 'Alias').body).to be_a(String)
+    context 'normal attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.find('Alias', nil, nil)).to be_a(Faraday::Response)
+      end
+
+      it 'should return String class for body reponse' do
+        expect(model.find('Alias', nil, nil).body).to be_a(String)
+      end
     end
   end
 
   describe '.find_url' do
-    it 'should return correct url' do
-      expect(model.find_url(show: 'Alias')).to eq('http://services.tvrage.com/tools/quickinfo.php?show=Alias')
+    context 'hash attributes' do
+      it 'should return correct url' do
+        expect(model.find_url(show: 'Alias')).to eq('http://services.tvrage.com/tools/quickinfo.php?show=Alias&&')
+      end
+    end
+
+    context 'normal attributes' do
+      it 'should return correct url' do
+        expect(model.find_url('Alias', nil, nil)).to eq('http://services.tvrage.com/tools/quickinfo.php?show=Alias&&')
+      end
     end
   end
 end

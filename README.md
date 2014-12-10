@@ -23,105 +23,87 @@ You have two way for access to api:
 
 * I way (create client class, one entry point)
 
+```ruby
+client = TvrageApi::Client.new
+client.info # => #<TvrageApi::Info>
+client.recap # => #<TvrageApi::Recap>
+client.schedule # => #<TvrageApi::Schedule>
+client.search # => #<TvrageApi::Search>
+client.show # => #<TvrageApi::Show>
+client.update # => #<TvrageApi::Update>
+```
+
 * II way (direct access to api class, many entry points)
 
-Search show by name:
-
 ```ruby
-client = TvrageApi::Client.new
-client.search.by_name(show: 'buffy')
-client.search.full_by_name(show: 'buffy')
+TvrageApi::Info.new
+TvrageApi::Recap.new
+TvrageApi::Schedule.new
+TvrageApi::Search.new
+TvrageApi::Show.new
+TvrageApi::Update.new
 ```
 
-```ruby
-search = TvrageApi::Search.new
-search.by_name(show: 'buffy')
-search.full_by_name(show: 'buffy')
-```
+## Methods
 
-Search show by id:
+For almost all method you can pass hash attributes or multiple attributes specified in method comment.
 
-```ruby
-client = TvrageApi::Client.new
-client.show.find(sid: '123')
-client.show.find_full(sid: '123')
-client.show.episodes(sid: '123') # show with all episodes
-client.show.episode(sid: '123', ep: 'SEASONxEPISODE') # show with specific episode
-client.show.all
-```
+### Info (QuickInfo) methods
 
-```ruby
-show = TvrageApi::Show.new
-show.find(sid: '123')
-show.find_full(sid: '123')
-show.episodes(sid: '123') # show with all episodes
-show.episode(sid: '123', ep: 'SEASONxEPISODE') # show with specific episode
-show.all
-```
+For method attributes read https://github.com/wafcio/tvrage_api/blob/master/lib/tvrage_api/info.rb
 
-QuickInfo (it return plain text, not parsed)
+* find
+* find_url
 
-```ruby
-client = TvrageApi::Client.new
-client.info.find(show: 'Alias') # main information
-client.info.find(show: 'Alias', ep: '2x04') # episode information
-client.info.find(show: 'Alias', exact: 1) # exact information
-```
+### Recap methods
 
-```ruby
-info = TvrageApi::Info.new
-info.find(show: 'Alias') # main information
-info.find(show: 'Alias', ep: '2x04') # episode information
-info.find(show: 'Alias', exact: 1) # exact information
-```
+For method attributes read https://github.com/wafcio/tvrage_api/blob/master/lib/tvrage_api/recap.rb
 
-Schedule (quick method return plain text)
+* all
+* all_url
+* show
+* show_url
+* last
+* last_url
 
-```ruby
-client = TvrageApi::Client.new
-client.schedule.quick
-client.schedule.full(country: 'US')
-```
+### Schedule methods
 
-```ruby
-schedule = TvrageApi::Schedule.new
-schedule.quick
-schedule.full(country: 'US')
-```
+For method attributes read https://github.com/wafcio/tvrage_api/blob/master/lib/tvrage_api/schedule.rb
 
-Recaps
+* quick
+* quick_url
+* full
+* full_url
 
-```ruby
-client = TvrageApi::Client.new
-client.recap.all
-client.recap.show(show: 5410)
-client.recap.last(days: 100)
-```
+### Search methods
 
-```ruby
-recaps = TvrageApi::Recaps.new
-recap.all
-recap.show(show: 5410)
-recap.last(days: 100)
-```
+For method attributes read https://github.com/wafcio/tvrage_api/blob/master/lib/tvrage_api/search.rb
 
-Updates:
+* by_name
+* by_name_url
+* full_by_name
+* full_by_name_url
 
-```ruby
-client = TvrageApi::Client.new
-client.update.last # last 24 hours
-client.update.last(hours: 48) # set timeline (default: 48)
-client.update.last(sort: 'episodes') # only shows where episodes have changed
-client.update.last(since: 1403668430) # updates since last visit
-```
+### Show (search show) methods
 
-```ruby
-update = TvrageApi::Update.new
-update.last # last 24 hours
-update.last(hours: 48) # set timeline (default: 48)
-update.last(sort: 'episodes') # only shows where episodes have changed
-update.last(since: 1403668430) # updates since last visit
-```
+For method attributes read https://github.com/wafcio/tvrage_api/blob/master/lib/tvrage_api/show.rb
+
+* find
+* find_url
+* find_full
+* find_full_url
+* episodes
+* episodes_url
+* episode
+* episode_url
+* all
+* all_url
+
+
+### Update methods
+
+* last
+* last_url
 
 ## Contributing
 

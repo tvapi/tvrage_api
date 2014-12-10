@@ -12,7 +12,7 @@ describe TvrageApi::Recap do
     Faraday::Adapter::Test::Stubs.new do |stub|
       stub.get('/recaps/all_recaps.php') { [200, { content_type: 'xml' }, all_data] }
       stub.get('/recaps/show_recaps.php?show=5410') { [200, { content_type: 'xml' }, show_data] }
-      stub.get('/recaps/last_recaps.php') { [200, { content_type: 'xml' }, last_data] }
+      stub.get('/recaps/last_recaps.php?days=30') { [200, { content_type: 'xml' }, last_data] }
     end
   end
 
@@ -33,34 +33,74 @@ describe TvrageApi::Recap do
   end
 
   describe '.show' do
-    it 'should return Faraday::Response class' do
-      expect(model.show(show: 5410)).to be_a(Faraday::Response)
+    context 'hash attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.show(id: 5410)).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.show(id: 5410).body).to be_a(Hash)
+      end
     end
 
-    it 'should return Hash class for body reponse' do
-      expect(model.show(show: 5410).body).to be_a(Hash)
+    context 'normal attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.show(5410)).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.show(5410).body).to be_a(Hash)
+      end
     end
   end
 
-  describe '.all_url' do
-    it 'should return correct url' do
-      expect(model.show_url(show: 5410)).to eq('http://services.tvrage.com/recaps/show_recaps.php?show=5410')
+  describe '.show_url' do
+    context 'hash attributes' do
+      it 'should return correct url' do
+        expect(model.show_url(id: 5410)).to eq('http://services.tvrage.com/recaps/show_recaps.php?show=5410')
+      end
+    end
+
+    context 'normal attributes' do
+      it 'should return correct url' do
+        expect(model.show_url(5410)).to eq('http://services.tvrage.com/recaps/show_recaps.php?show=5410')
+      end
     end
   end
 
   describe '.last' do
-    it 'should return Faraday::Response class' do
-      expect(model.last).to be_a(Faraday::Response)
+    context 'hash attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.last(days: 30)).to be_a(Faraday::Response)
+      end
+
+      it 'should return Hash class for body reponse' do
+        expect(model.last(days: 30).body).to be_a(Hash)
+      end
     end
 
-    it 'should return Hash class for body reponse' do
-      expect(model.last.body).to be_a(Hash)
+    context 'normal attributes' do
+      it 'should return Faraday::Response class' do
+        expect(model.last(30)).to be_a(Faraday::Response)
+      end
+
+      it 'should return String class for body reponse' do
+        expect(model.last(30).body).to be_a(Hash)
+      end
     end
   end
 
-  describe '.all_url' do
-    it 'should return correct url' do
-      expect(model.last_url).to eq('http://services.tvrage.com/recaps/last_recaps.php')
+  describe '.last_url' do
+    context 'hash attributes' do
+      it 'should return correct url' do
+        expect(model.last_url(days: 30)).to eq('http://services.tvrage.com/recaps/last_recaps.php?days=30')
+      end
+    end
+
+    context 'normal attributes' do
+      it 'should return correct url' do
+        expect(model.last_url(30)).to eq('http://services.tvrage.com/recaps/last_recaps.php?days=30')
+      end
     end
   end
 end
