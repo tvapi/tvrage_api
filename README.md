@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/wafcio/tvrage_api.png?branch=master)](https://travis-ci.org/wafcio/tvrage_api)
-[![Dependency Status](https://gemnasium.com/wafcio/tvrage_api.png)](https://gemnasium.com/wafcio/tvrage_api)
-[![Code Climate](https://codeclimate.com/github/wafcio/tvrage_api.png)](https://codeclimate.com/github/wafcio/tvrage_api)
-[![Coverage Status](https://coveralls.io/repos/wafcio/tvrage_api/badge.png)](https://coveralls.io/r/wafcio/tvrage_api)
+[![Build Status](https://travis-ci.org/tvapi/tvrage_api.png?branch=master)](https://travis-ci.org/tvapi/tvrage_api)
+[![Dependency Status](https://gemnasium.com/tvapi/tvrage_api.png)](https://gemnasium.com/tvapi/tvrage_api)
+[![Code Climate](https://codeclimate.com/github/tvapi/tvrage_api.png)](https://codeclimate.com/github/tvapi/tvrage_api)
+[![Coverage Status](https://coveralls.io/repos/tvapi/tvrage_api/badge.png)](https://coveralls.io/r/tvapi/tvrage_api)
 [![Gem Version](https://badge.fury.io/rb/tvrage_api.png)](http://badge.fury.io/rb/tvrage_api)
 
 # TvrageApi
@@ -50,14 +50,14 @@ For almost all method you can pass hash attributes or multiple attributes specif
 
 ### Info (QuickInfo) methods
 
-For method attributes read https://github.com/wafcio/tvrage_api/blob/master/lib/tvrage_api/info.rb
+For method attributes read https://github.com/tvapi/tvrage_api/blob/master/lib/tvrage_api/info.rb
 
 * find
 * find_url
 
 ### Recap methods
 
-For method attributes read https://github.com/wafcio/tvrage_api/blob/master/lib/tvrage_api/recap.rb
+For method attributes read https://github.com/tvapi/tvrage_api/blob/master/lib/tvrage_api/recap.rb
 
 * all
 * all_url
@@ -68,7 +68,7 @@ For method attributes read https://github.com/wafcio/tvrage_api/blob/master/lib/
 
 ### Schedule methods
 
-For method attributes read https://github.com/wafcio/tvrage_api/blob/master/lib/tvrage_api/schedule.rb
+For method attributes read https://github.com/tvapi/tvrage_api/blob/master/lib/tvrage_api/schedule.rb
 
 * quick
 * quick_url
@@ -77,7 +77,7 @@ For method attributes read https://github.com/wafcio/tvrage_api/blob/master/lib/
 
 ### Search methods
 
-For method attributes read https://github.com/wafcio/tvrage_api/blob/master/lib/tvrage_api/search.rb
+For method attributes read https://github.com/tvapi/tvrage_api/blob/master/lib/tvrage_api/search.rb
 
 * by_name
 * by_name_url
@@ -86,7 +86,7 @@ For method attributes read https://github.com/wafcio/tvrage_api/blob/master/lib/
 
 ### Show (search show) methods
 
-For method attributes read https://github.com/wafcio/tvrage_api/blob/master/lib/tvrage_api/show.rb
+For method attributes read https://github.com/tvapi/tvrage_api/blob/master/lib/tvrage_api/show.rb
 
 * find
 * find_url
@@ -102,7 +102,7 @@ For method attributes read https://github.com/wafcio/tvrage_api/blob/master/lib/
 
 ### Update methods
 
-For method attributes read https://github.com/wafcio/tvrage_api/blob/master/lib/tvrage_api/update.rb
+For method attributes read https://github.com/tvapi/tvrage_api/blob/master/lib/tvrage_api/update.rb
 
 * last
 * last_url
