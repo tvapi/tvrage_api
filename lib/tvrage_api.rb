@@ -1,6 +1,6 @@
-module TvrageApi
-  module Request; end
-end
+require 'ov'
+
+module TvrageApi; end
 
 require 'tvrage_api/version'
 require 'tvrage_api/client'
