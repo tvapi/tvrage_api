@@ -82,8 +82,8 @@ class TvrageApi::Info < TvrageApi::Base
 
   private
 
-  def find_path_with_params(*options)
-    path(find_path).params(normalize_quick_info_options(*options))
+  def find_path_with_params(options)
+    path(find_path).params(options)
   end
 
   def find_path

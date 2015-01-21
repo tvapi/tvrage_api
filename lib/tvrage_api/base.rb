@@ -3,11 +3,6 @@ require 'service_api'
 class TvrageApi::Base
   include ServiceApi::BaseFaraday
 
-  # TODO: support optional parameters
-  def normalize_quick_info_options(*options)
-    normalize_options({ show: :show, episode: :ep, exact: :exact }, *options)
-  end
-
   def normalize_recaps_options(*options)
     normalize_options({ id: :show }, *options)
   end

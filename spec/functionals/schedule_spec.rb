@@ -10,6 +10,7 @@ describe TvrageApi::Schedule do
   let(:faraday_stubs) do
     Faraday::Adapter::Test::Stubs.new do |stub|
       stub.get('/tools/quickschedule.php') { [200, { content_type: 'text' }, quick_data] }
+      stub.get('/feeds/fullschedule.php') { [200, { content_type: 'xml' }, full_data] }
       stub.get('/feeds/fullschedule.php?country=US') { [200, { content_type: 'xml' }, full_data] }
     end
   end
@@ -63,11 +64,11 @@ describe TvrageApi::Schedule do
 
     context 'normal attributes' do
       it 'should return Faraday::Response class' do
-        expect(model.full('US', nil)).to be_a(Faraday::Response)
+        expect(model.full).to be_a(Faraday::Response)
       end
 
       it 'should return Hash class for body reponse' do
-        expect(model.full('US', nil).body).to be_a(Hash)
+        expect(model.full.body).to be_a(Hash)
       end
     end
   end
@@ -81,7 +82,7 @@ describe TvrageApi::Schedule do
 
     context 'normal attributes' do
       it 'should return correct url' do
-        expect(model.full_url('US', nil)).to eq('http://services.tvrage.com/feeds/fullschedule.php?country=US&')
+        expect(model.full_url).to eq('http://services.tvrage.com/feeds/fullschedule.php')
       end
     end
   end

@@ -1,4 +1,6 @@
 class TvrageApi::Recap < TvrageApi::Base
+  include Ov
+
   # All recaps
   #
   # access: FREE
@@ -18,53 +20,81 @@ class TvrageApi::Recap < TvrageApi::Base
   # Recaps From Selected Show
   #
   # access: FREE
-  # param (flat params):
-  #   show(id)
+  # param:
   #   show('1234')
-  # param (hash params):
+  # output: Faraday::Response instance with parsed XML string
+  let :show, Any do |id|
+    show(id: id)
+  end
+
+  # Recaps From Selected Show
+  #
+  # access: FREE
+  # param:
   #   show(id: '1234')
   # output: Faraday::Response instance with parsed XML string
-  def show(*options)
-    show_path_with_params(*options).get
+  let :show, Hash do |options|
+    show_path_with_params(options).get
   end
 
   # Recaps From Selected Show - return only url
   #
   # access: FREE
-  # param (flat params):
-  #   show_url(id)
+  # param:
   #   show_url(1234)
-  # param (hash params):
+  # output: url string
+  let :show_url, Any do |id|
+    show_url(id: id)
+  end
+
+  # Recaps From Selected Show - return only url
+  #
+  # access: FREE
+  # param:
   #   show_url(id: 1234)
   # output: url string
-  def show_url(*options)
-    show_path_with_params(*options).url
+  let :show_url, Hash do |options|
+    show_path_with_params(options).url
   end
 
   # Latest Recaps
   #
   # access: FREE
-  # param (flat params):
-  #   last(days)
+  # param:
   #   last(30)
-  # param (hash params):
+  # output: Faraday::Response instance with parsed XML string
+  let :last, Any do |days|
+    last(days: days)
+  end
+
+  # Latest Recaps
+  #
+  # access: FREE
+  # param:
   #   last(days: 30)
   # output: Faraday::Response instance with parsed XML string
-  def last(*options)
-    last_path_with_params(*options).get
+  let :last, Hash do |options|
+    last_path_with_params(options).get
   end
 
   # Latest Recaps - return only url
   #
   # access: FREE
-  # param (flat params):
-  #   last_url(days)
+  # param:
   #   last_url(30)
-  # param (hash params):
+  # output: url string
+  let :last_url, Any do |days|
+    last_url(days: days)
+  end
+
+  # Latest Recaps - return only url
+  #
+  # access: FREE
+  # param:
   #   last_url(days: 30)
   # output: url string
-  def last_url(*options)
-    last_path_with_params(*options).url
+  let :last_url, Hash do |options|
+    last_path_with_params(options).url
   end
 
   private
@@ -73,16 +103,20 @@ class TvrageApi::Recap < TvrageApi::Base
     'recaps/all_recaps.php'
   end
 
-  def show_path_with_params(*options)
-    path(show_path).params(normalize_recaps_options(*options))
+  def show_path_with_params(options)
+    path(show_path).params(show_mapped_options(options))
+  end
+
+  def show_mapped_options(options)
+    TvrageApi::AttributesMapping::Recap::Show.new(options).to_hash
   end
 
   def show_path
     'recaps/show_recaps.php'
   end
 
-  def last_path_with_params(*options)
-    path(last_path).params(normalize_last_recaps_options(*options))
+  def last_path_with_params(options)
+    path(last_path).params(options)
   end
 
   def last_path
