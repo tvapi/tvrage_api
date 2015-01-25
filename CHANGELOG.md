@@ -1,3 +1,8 @@
+## 0.3.0 (January 25, 2015)
+
+  - use ov gem for multimethod
+  - use hashie for normalize params key names
+
 ## 0.2.1 (August 31, 2014)
 
   - update dependencies
